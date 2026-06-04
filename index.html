@@ -537,10 +537,13 @@
 
   <div class="hero-card">
     <div class="signup-title">Create Your Free Account</div>
-    <div class="form-field"><input type="text" placeholder="Full name" /></div>
-    <div class="form-field"><input type="email" placeholder="Email address" /></div>
-    <div class="form-field"><input type="password" placeholder="Create password" /></div>
-    <button class="form-join">Join Quasar Survey Hub Now →</button>
+    <div id="form-success" style="display:none;background:rgba(0,182,122,0.15);border:1px solid rgba(0,182,122,0.4);border-radius:10px;padding:16px;text-align:center;color:#6ee7c7;font-weight:600;margin-bottom:12px;">
+      ✅ You're in! We'll be in touch soon.
+    </div>
+    <div class="form-field"><input type="text" id="f-name" placeholder="Full name" /></div>
+    <div class="form-field"><input type="email" id="f-email" placeholder="Email address" /></div>
+    <div class="form-field"><input type="password" id="f-password" placeholder="Create password" /></div>
+    <button class="form-join" id="form-btn" onclick="submitSignup(event)">Join Quasar Survey Hub Now →</button>
     <div class="form-divider">or sign up with</div>
     <button class="form-google">
       <svg width="16" height="16" viewBox="0 0 48 48" fill="none">
@@ -551,6 +554,35 @@
     <p class="form-terms">By joining you agree to our <a href="#">Terms of Service</a> &amp; <a href="#">Privacy Policy</a></p>
   </div>
 </section>
+
+<script>
+async function submitSignup(e) {
+  e.preventDefault();
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const password = document.getElementById('f-password').value.trim();
+  if (!name || !email || !password) { alert('Please fill in all fields.'); return; }
+  const btn = document.getElementById('form-btn');
+  btn.textContent = 'Submitting…'; btn.disabled = true;
+  try {
+    const res = await fetch('https://formspree.io/f/xaqzykpe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name, email, _subject: 'New Quasar Survey Hub Signup' })
+    });
+    if (res.ok) {
+      document.getElementById('form-success').style.display = 'block';
+      document.getElementById('f-name').value = '';
+      document.getElementById('f-email').value = '';
+      document.getElementById('f-password').value = '';
+      btn.textContent = '✓ Submitted!';
+    } else { throw new Error(); }
+  } catch {
+    alert('Something went wrong. Please try again.');
+    btn.textContent = 'Join Quasar Survey Hub Now →'; btn.disabled = false;
+  }
+}
+</script>
 
 <!-- STATS BAR -->
 <div class="stats-bar">
