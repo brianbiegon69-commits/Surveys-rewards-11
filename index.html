@@ -3,120 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quasar Rewards</title>
+<title>Rewards Hub</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#fff}
-header{background:#111827;padding:15px 20px;position:sticky;top:0}
-.nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:auto}
-.nav-links{display:flex;gap:20px;flex-wrap:wrap}
-.nav a{color:#fff;text-decoration:none}
-.hero{padding:100px 20px;text-align:center;background:linear-gradient(135deg,#2563eb,#7c3aed)}
-.btn{background:#fff;color:#111827;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold}
+body{font-family:Arial,sans-serif;margin:0;background:#f4f6f9;color:#222}
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+nav a{text-decoration:none;color:#333;margin:0 12px}
+.hero{background:linear-gradient(135deg,#00a86b,#00c896);color:#fff;text-align:center;padding:100px 20px}
+.btn{background:#fff;color:#00a86b;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:bold}
 .container{max-width:1200px;margin:auto;padding:60px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#1e293b;padding:20px;border-radius:12px}
-input,button{padding:10px;margin:5px;border:none;border-radius:6px}
-footer{background:#111827;text-align:center;padding:30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:#fff;padding:25px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+footer{background:#222;color:#fff;text-align:center;padding:30px}
 </style>
 </head>
 <body>
 
 <header>
-<div class="nav">
-<h2>Quasar Rewards</h2>
-<div class="nav-links">
-<a href="#features">Features</a>
-<a href="#tasks">Tasks</a>
-<a href="#dashboard">Dashboard</a>
+<h2>Rewards Hub</h2>
+<nav>
+<a href="#earn">Earn</a>
+<a href="#surveys">Surveys</a>
+<a href="#offers">Offers</a>
 <a href="#referrals">Referrals</a>
-<a href="#withdraw">Withdraw</a>
-<a href="#leaderboard">Leaderboard</a>
-</div>
-</div>
+</nav>
 </header>
 
 <section class="hero">
-<h1>Earn Rewards Daily</h1>
-<p>Complete tasks, invite friends and earn points.</p><br>
-<a class="btn" href="#tasks">Start Earning</a>
+<h1>Earn Money Online</h1>
+<p>Complete surveys, offers and simple online tasks to earn rewards.</p>
+<br>
+<a href="#earn" class="btn">Start Earning</a>
 </section>
 
-<div class="container" id="features">
-<h2>Features</h2>
+<div class="container" id="earn">
+<h2>Ways to Earn</h2>
 <div class="grid">
-<div class="card">🎁 Daily Rewards</div>
-<div class="card">👥 Referral Program</div>
-<div class="card">💰 M-Pesa Withdrawals</div>
-<div class="card">🏆 Leaderboard</div>
+<div class="card">📋 Paid Surveys</div>
+<div class="card">🎁 Offers & Tasks</div>
+<div class="card">🎥 Watch Content</div>
+<div class="card">👥 Refer Friends</div>
 </div>
 </div>
 
-<div class="container" id="tasks">
-<h2>Available Tasks</h2>
+<div class="container" id="surveys">
+<h2>Featured Surveys</h2>
 <div class="grid">
-<div class="card">
-<h3>Daily Check-In</h3>
-<p>Reward: 10 Points</p>
-<button onclick="claimTask('Daily Check-In')">Claim</button>
-</div>
-<div class="card">
-<h3>Watch Sponsored Content</h3>
-<p>Reward: 20 Points</p>
-<button onclick="claimTask('Sponsored Content')">Claim</button>
-</div>
-<div class="card">
-<h3>Invite a Friend</h3>
-<p>Reward: 100 Points</p>
-<button onclick="claimTask('Referral Bonus')">Claim</button>
-</div>
-<div class="card">
-<h3>Share on Social Media</h3>
-<p>Reward: 30 Points</p>
-<button onclick="claimTask('Social Share')">Claim</button>
-</div>
+<div class="card">Technology Survey - $1.20</div>
+<div class="card">Shopping Survey - $0.80</div>
+<div class="card">Lifestyle Survey - $1.50</div>
 </div>
 </div>
 
-<div class="container" id="dashboard">
-<h2>Dashboard</h2>
-<div class="card">
-Current Points: <span id="points">0</span>
+<div class="container" id="offers">
+<h2>Popular Offers</h2>
+<div class="grid">
+<div class="card">Install an App - 200 Points</div>
+<div class="card">Create an Account - 150 Points</div>
+<div class="card">Complete a Trial - 500 Points</div>
 </div>
 </div>
 
 <div class="container" id="referrals">
-<h2>Referral Link</h2>
-<div class="card">https://quasarrewards.com/?ref=USER123</div>
-</div>
-
-<div class="container" id="withdraw">
-<h2>M-Pesa Withdrawal</h2>
+<h2>Referral Program</h2>
 <div class="card">
-<input placeholder="Phone Number"><br>
-<input placeholder="Amount"><br>
-<button>Request Withdrawal</button>
+Invite friends and earn a commission from their activity.
 </div>
 </div>
 
-<div class="container" id="leaderboard">
-<h2>Leaderboard</h2>
-<div class="card">
-#1 Brian - 25,000 Points<br><br>
-#2 User123 - 20,000 Points<br><br>
-#3 TechGuru - 18,000 Points
-</div>
-</div>
-
-<footer>© 2026 Quasar Rewards</footer>
-
-<script>
-let points = 0;
-function claimTask(task){
-  points += 10;
-  document.getElementById('points').textContent = points;
-  alert(task + " completed! Points added.");
-}
-</script>
+<footer>
+© 2026 Rewards Hub
+</footer>
 
 </body>
 </html>
