@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quasar Rewards Surveys</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#0f172a;color:white}
+header{background:#111827;padding:15px;display:flex;justify-content:space-between}
+nav a{color:white;text-decoration:none;margin:0 10px}
+section{padding:40px 20px}
+.hero{text-align:center;padding:80px 20px;background:linear-gradient(135deg,#2563eb,#7c3aed)}
+.card{background:#1e293b;padding:20px;border-radius:10px;margin:10px 0}
+button{padding:10px 15px;border:none;border-radius:6px;cursor:pointer}
+#points{font-weight:bold}
+</style>
+</head>
+<body>
+<header>
+<h2>Quasar Rewards</h2>
+<nav>
+<a href="#surveys">Surveys</a>
+<a href="#tasks">Tasks</a>
+<a href="#wallet">Wallet</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Earn Points</h1>
+<p>Complete surveys and tasks.</p>
+<a href="#surveys"><button>Start Earning</button></a>
+</div>
+
+<section id="wallet">
+<h2>Wallet</h2>
+<div class="card">Points: <span id="points">0</span></div>
+</section>
+
+<section id="surveys">
+<h2>Sample Surveys</h2>
+
+<div class="card">
+<h3>Technology Survey</h3>
+<p>How often do you buy electronics?</p>
+<select id="s1">
+<option>Choose</option>
+<option>Monthly</option>
+<option>Yearly</option>
+</select>
+<button onclick="completeSurvey('s1',25)">Submit Survey (+25)</button>
+</div>
+
+<div class="card">
+<h3>Shopping Survey</h3>
+<p>Do you shop online?</p>
+<select id="s2">
+<option>Choose</option>
+<option>Yes</option>
+<option>No</option>
+</select>
+<button onclick="completeSurvey('s2',25)">Submit Survey (+25)</button>
+</div>
+</section>
+
+<section id="tasks">
+<h2>Tasks</h2>
+
+<div class="card">
+Daily Check-in
+<button onclick="addPoints(10)">Claim +10</button>
+</div>
+
+<div class="card">
+Watch Video Task
+<button onclick="addPoints(20)">Complete +20</button>
+</div>
+
+<div class="card">
+Share Task
+<button onclick="addPoints(30)">Complete +30</button>
+</div>
+</section>
+
+<script>
+let points=parseInt(localStorage.getItem('points')||'0');
+document.getElementById('points').innerText=points;
+
+function save(){
+ localStorage.setItem('points',points);
+ document.getElementById('points').innerText=points;
+}
+
+function addPoints(v){
+ points+=v;
+ save();
+ alert("Task completed!");
+}
+
+function completeSurvey(id,reward){
+ const el=document.getElementById(id);
+ if(el.selectedIndex===0){
+   alert("Please answer the survey.");
+   return;
+ }
+ points+=reward;
+ save();
+ alert("Survey submitted!");
+}
+</script>
+</body>
+</html>
