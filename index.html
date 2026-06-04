@@ -1,76 +1,130 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quasar Rewards</title>
+<title>Quasar Rewards Pro</title>
 <style>
-body{font-family:Arial,sans-serif;margin:0;background:#0f172a;color:#fff}
-header{padding:20px 40px;display:flex;justify-content:space-between;background:#111827;position:sticky;top:0}
-.hero{padding:80px 20px;text-align:center;background:linear-gradient(135deg,#2563eb,#7c3aed)}
-.btn{background:#fff;color:#111;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold}
-section{padding:60px 20px;max-width:1200px;margin:auto}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#1e293b;padding:20px;border-radius:12px}
+body{margin:0;font-family:Arial,sans-serif;background:#0b1220;color:#fff}
+header{position:sticky;top:0;background:#111827;padding:15px 40px;display:flex;justify-content:space-between}
+nav a{color:#fff;text-decoration:none;margin:0 10px}
+.hero{padding:120px 20px;text-align:center;background:linear-gradient(135deg,#2563eb,#7c3aed)}
+.btn{background:#fff;color:#111827;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:bold}
+section{padding:70px 20px;max-width:1200px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:#1e293b;padding:25px;border-radius:14px;box-shadow:0 0 15px rgba(0,0,0,.3)}
+.counter{font-size:2rem;font-weight:bold}
+.faq details{background:#1e293b;padding:15px;margin:10px 0;border-radius:10px}
 footer{background:#111827;padding:30px;text-align:center}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px 20px;border-radius:50px;text-decoration:none}
+.toggle{cursor:pointer}
 </style>
 </head>
 <body>
+
 <header>
-<h2>Quasar Rewards</h2>
-<nav>Home | Features | Rewards | Contact</nav>
+<h2>Quasar Rewards Pro</h2>
+<nav>
+<a href="#features">Features</a>
+<a href="#earn">Earn</a>
+<a href="#leaderboard">Leaderboard</a>
+<a href="#faq">FAQ</a>
+<span class="toggle" onclick="toggleMode()">🌓</span>
+</nav>
 </header>
 
-<div class="hero">
+<section class="hero">
 <h1>Earn Rewards Every Day</h1>
-<p>Complete tasks, invite friends, earn points and withdraw via M‑Pesa.</p>
-<a class="btn" href="#">Get Started</a>
-</div>
+<p>Complete tasks, invite friends, build points and withdraw via M‑Pesa.</p><br>
+<a href="#" class="btn">Start Earning</a>
+</section>
 
 <section>
-<h2>Features</h2>
+<h2>Live Platform Statistics</h2>
 <div class="grid">
-<div class="card">Referral Program</div>
-<div class="card">Points Wallet</div>
-<div class="card">M‑Pesa Withdrawals</div>
-<div class="card">Leaderboards</div>
-<div class="card">Daily Check‑ins</div>
-<div class="card">Achievement Badges</div>
+<div class="card"><div class="counter" id="u">12500</div>Users</div>
+<div class="card"><div class="counter" id="p">890000</div>Points Earned</div>
+<div class="card"><div class="counter" id="r">5400</div>Referrals</div>
+<div class="card"><div class="counter" id="w">1250000</div>KSh Paid</div>
+</div>
+</section>
+
+<section id="features">
+<h2>Premium Features</h2>
+<div class="grid">
+<div class="card">🎁 Daily Rewards</div>
+<div class="card">👥 Referral Program</div>
+<div class="card">💰 M‑Pesa Withdrawals</div>
+<div class="card">🏆 Leaderboards</div>
+<div class="card">🎡 Daily Spin Wheel</div>
+<div class="card">🎖 Achievement Badges</div>
+<div class="card">📢 Notifications</div>
+<div class="card">🔒 Secure Accounts</div>
+</div>
+</section>
+
+<section id="earn">
+<h2>How You Earn</h2>
+<div class="grid">
+<div class="card">Daily Login Bonus</div>
+<div class="card">Complete Tasks</div>
+<div class="card">Invite Friends</div>
+<div class="card">Watch Sponsored Content</div>
 </div>
 </section>
 
 <section>
-<h2>How It Works</h2>
-<ol>
-<li>Create an account</li>
-<li>Complete tasks</li>
-<li>Invite friends</li>
-<li>Earn points</li>
-<li>Withdraw rewards</li>
-</ol>
-</section>
-
-<section>
-<h2>Leaderboard Preview</h2>
+<h2>Referral Program</h2>
 <div class="card">
-1. Brian — 25,000 points<br>
-2. User123 — 20,000 points<br>
-3. TechGuru — 18,500 points
+Share your referral link and earn bonus points whenever a verified user joins and completes their first task.
+</div>
+</section>
+
+<section id="leaderboard">
+<h2>Top Earners</h2>
+<div class="card">
+#1 Brian — 25,000 Points<br><br>
+#2 User123 — 20,500 Points<br><br>
+#3 TechGuru — 19,800 Points
 </div>
 </section>
 
 <section>
-<h2>FAQ</h2>
-<div class="card"><b>How do I earn?</b><br>Complete tasks and referrals.</div>
-<br>
-<div class="card"><b>How do withdrawals work?</b><br>Withdraw through M‑Pesa after reaching the minimum threshold.</div>
+<h2>Testimonials</h2>
+<div class="grid">
+<div class="card">"Amazing rewards platform!"</div>
+<div class="card">"Easy withdrawals and referrals."</div>
+<div class="card">"Very simple to use."</div>
+</div>
+</section>
+
+<section id="faq" class="faq">
+<h2>Frequently Asked Questions</h2>
+<details><summary>How do I earn points?</summary><p>Complete tasks and referrals.</p></details>
+<details><summary>How do withdrawals work?</summary><p>Withdraw via M‑Pesa after meeting requirements.</p></details>
+<details><summary>Is registration free?</summary><p>Yes.</p></details>
+</section>
+
+<section>
+<h2>Contact Us</h2>
+<div class="card">
+Email: support@quasarrewards.com<br>
+Phone: +254 XXX XXX XXX
+</div>
 </section>
 
 <footer>
-© 2026 Quasar Rewards. All rights reserved.
+© 2026 Quasar Rewards Pro
 </footer>
 
-<a class="whatsapp" href="#">WhatsApp</a>
+<script>
+function toggleMode(){
+ document.body.style.background =
+ document.body.style.background==='white' ? '#0b1220' : 'white';
+ document.body.style.color =
+ document.body.style.color==='black' ? 'white' : 'black';
+}
+</script>
+
 </body>
 </html>
