@@ -6,75 +6,99 @@
 <title>Quasar Rewards</title>
 <style>
 body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#fff}
-header{background:#111827;padding:15px 30px;display:flex;justify-content:space-between;align-items:center}
-nav a{color:#fff;text-decoration:none;margin:0 10px}
+header{background:#111827;padding:15px 20px;position:sticky;top:0}
+.nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:auto}
+.nav-links{display:flex;gap:20px;flex-wrap:wrap}
+.nav a{color:#fff;text-decoration:none}
 .hero{padding:100px 20px;text-align:center;background:linear-gradient(135deg,#2563eb,#7c3aed)}
 .btn{background:#fff;color:#111827;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold}
 .container{max-width:1200px;margin:auto;padding:60px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
 .card{background:#1e293b;padding:20px;border-radius:12px}
+input,button{padding:10px;margin:5px;border:none;border-radius:6px}
 footer{background:#111827;text-align:center;padding:30px}
-input,button{padding:10px;margin:5px;border-radius:6px;border:none}
-button{cursor:pointer}
 </style>
 </head>
 <body>
+
 <header>
+<div class="nav">
 <h2>Quasar Rewards</h2>
-<nav>
+<div class="nav-links">
 <a href="#features">Features</a>
+<a href="#tasks">Tasks</a>
 <a href="#dashboard">Dashboard</a>
 <a href="#referrals">Referrals</a>
 <a href="#withdraw">Withdraw</a>
-</nav>
+<a href="#leaderboard">Leaderboard</a>
+</div>
+</div>
 </header>
 
 <section class="hero">
 <h1>Earn Rewards Daily</h1>
-<p>Complete tasks, refer friends and withdraw through M‑Pesa.</p><br>
-<a class="btn" href="#">Join Now</a>
+<p>Complete tasks, invite friends and earn points.</p><br>
+<a class="btn" href="#tasks">Start Earning</a>
 </section>
 
 <div class="container" id="features">
 <h2>Features</h2>
 <div class="grid">
 <div class="card">🎁 Daily Rewards</div>
-<div class="card">👥 Referral System</div>
-<div class="card">💰 M‑Pesa Withdrawals</div>
+<div class="card">👥 Referral Program</div>
+<div class="card">💰 M-Pesa Withdrawals</div>
 <div class="card">🏆 Leaderboard</div>
-<div class="card">🔐 Secure Accounts</div>
-<div class="card">📱 Mobile Friendly</div>
+</div>
+</div>
+
+<div class="container" id="tasks">
+<h2>Available Tasks</h2>
+<div class="grid">
+<div class="card">
+<h3>Daily Check-In</h3>
+<p>Reward: 10 Points</p>
+<button onclick="claimTask('Daily Check-In')">Claim</button>
+</div>
+<div class="card">
+<h3>Watch Sponsored Content</h3>
+<p>Reward: 20 Points</p>
+<button onclick="claimTask('Sponsored Content')">Claim</button>
+</div>
+<div class="card">
+<h3>Invite a Friend</h3>
+<p>Reward: 100 Points</p>
+<button onclick="claimTask('Referral Bonus')">Claim</button>
+</div>
+<div class="card">
+<h3>Share on Social Media</h3>
+<p>Reward: 30 Points</p>
+<button onclick="claimTask('Social Share')">Claim</button>
+</div>
 </div>
 </div>
 
 <div class="container" id="dashboard">
-<h2>User Dashboard Preview</h2>
-<div class="grid">
-<div class="card"><h3>Points</h3><p>12,500</p></div>
-<div class="card"><h3>Referrals</h3><p>85</p></div>
-<div class="card"><h3>Earnings</h3><p>KSh 2,500</p></div>
+<h2>Dashboard</h2>
+<div class="card">
+Current Points: <span id="points">0</span>
 </div>
 </div>
 
 <div class="container" id="referrals">
-<h2>Referral Program</h2>
-<div class="card">
-<p>Your Referral Link:</p>
-<input value="https://quasarrewards.com/?ref=USER123" style="width:80%">
-<button>Copy</button>
-</div>
+<h2>Referral Link</h2>
+<div class="card">https://quasarrewards.com/?ref=USER123</div>
 </div>
 
 <div class="container" id="withdraw">
-<h2>M‑Pesa Withdrawal</h2>
+<h2>M-Pesa Withdrawal</h2>
 <div class="card">
-<input placeholder="M‑Pesa Number"><br>
+<input placeholder="Phone Number"><br>
 <input placeholder="Amount"><br>
 <button>Request Withdrawal</button>
 </div>
 </div>
 
-<div class="container">
+<div class="container" id="leaderboard">
 <h2>Leaderboard</h2>
 <div class="card">
 #1 Brian - 25,000 Points<br><br>
@@ -83,8 +107,16 @@ button{cursor:pointer}
 </div>
 </div>
 
-<footer>
-<p>© 2026 Quasar Rewards</p>
-</footer>
+<footer>© 2026 Quasar Rewards</footer>
+
+<script>
+let points = 0;
+function claimTask(task){
+  points += 10;
+  document.getElementById('points').textContent = points;
+  alert(task + " completed! Points added.");
+}
+</script>
+
 </body>
 </html>
